@@ -65,6 +65,21 @@ async function handleRequest(request, env) {
   return new Response('Not Found', { status: 404 })
 }
 
+addEventListener('fetch', event => {
+  event.respondWith(safeHandleRequest(event.request, env))
+})
+
+async function safeHandleRequest(request, env) {
+  try {
+    return await handleRequest(request, env)
+  } catch (err) {
+    return new Response(
+      JSON.stringify({ error: 'Worker Exception', message: err.message }),
+      { status: 500, headers: { 'Content-Type': 'application/json' } }
+    )
+  }
+}
+
 // 简单前端页面 + JS
 function getHtmlPage() {
   return `
