@@ -1,4 +1,4 @@
-const apiBase = '';
+const apiBase = 'https://t-drive.liangzx19.workers.dev';
 document.getElementById('loginBtn').onclick = async () => {
   const password = document.getElementById('password').value;
   const res = await fetch(apiBase + '/login', {
