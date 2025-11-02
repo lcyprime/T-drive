@@ -1,0 +1,17 @@
+name = "t-drive"
+main = "worker/worker.js"
+compatibility_date = "2025-01-01"
+
+[vars]
+TELEGRAM_BOT_TOKEN = "your_bot_token"
+TELEGRAM_CHAT_ID = "your_chat_id"
+LOGIN_PASSWORD = "your_login_password"
+API_KEY = "your_random_api_key"
+
+[[kv_namespaces]]
+binding = "DB"
+id = "xxxx-db-id"
+
+[[kv_namespaces]]
+binding = "THUMB_CACHE"
+id = "xxxx-thumb-id"
